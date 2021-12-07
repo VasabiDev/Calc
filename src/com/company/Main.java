@@ -14,30 +14,25 @@ public class Main {
             Scanner input = new Scanner(System.in);
             String inputStr = input.nextLine();
 
-
-            // делим строку на элементы и разносим по переменным с необходимым приведением типов
+            // делим строку на элементы
             String[] separated = inputStr.split(" ");
-            int a = Integer.parseInt(separated[0]);
-            String operation = separated[1];
 
-            int b = Integer.parseInt(separated[2]);
 
-            //получаем ответ от методов класса проверки
-            boolean check1 = Check.checkNumberSize(a, b);
-            boolean check2 = Check.ArrayCheckLength(separated);
-            boolean check3 = Check.operationCorrectly(operation);
 
             //цикл по прохождению всех проверок
-            if (check1 && check2 && check3) {
-                CalcFun.Calc(operation, a, b);
+            if(Check.checkRoman(separated) && Check.ArrayCheckLength(separated) && Check.operationCorrectly(separated[1])){
+               Roman.RomanCalc(separated);
+            } else if (Check.checkNumberSize(separated) && Check.ArrayCheckLength(separated) && Check.operationCorrectly(separated[1])) {
+                CalcFun.Calc(separated);
+
 
             }
 
 // обработка исключений
-        } catch (NumberFormatException e) {
-            System.out.println("throws Exception // т.к. Неверный формат ввода");
+      //  } catch (NumberFormatException e) {
+    //        System.out.println("throws Exception // т.к. Неверный формат ввода");
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println( "throws Exception //т.к. строка не является математической операцией");
+            System.out.println("throws Exception //т.к. строка не является математической операцией");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
