@@ -22,7 +22,7 @@ public class Main {
 
             int b = Integer.parseInt(separated[2]);
 
-
+            //получаем ответ от методов класса проверки
             boolean check1 = Check.checkNumberSize(a, b);
             boolean check2 = Check.ArrayCheckLength(separated);
             boolean check3 = Check.operationCorrectly(operation);
@@ -33,7 +33,7 @@ public class Main {
 
             }
 
-
+// обработка исключений
         } catch (NumberFormatException e) {
             System.out.println("throws Exception // т.к. Неверный формат ввода");
         } catch (ArrayIndexOutOfBoundsException e) {

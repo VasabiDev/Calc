@@ -16,15 +16,21 @@ public class Check {
             return false;
         } else return true;
     }
-
+    // проверка оператора на корректность
     public static boolean operationCorrectly(String operation) {
         int count = 0;
         for (int i = 0; i < operation.length(); i++) {
             count++;
         }
+        // проверяем, является ли оператор числом
+        try {
+            Double.parseDouble(operation);
+            System.out.println("throws Exception // Оператор не должен являться числом");
+        } catch (NumberFormatException e) {
+
+        }
 
         if (count == 1) {
-
             return true;
         } else
             System.out.println("throws Exception // т.к. Неверный математический оператор");
