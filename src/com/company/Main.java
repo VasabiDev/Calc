@@ -24,9 +24,8 @@ public class Main {
                Roman.RomanCalc(separated);
             } else if (Check.checkNumberSize(separated) && Check.ArrayCheckLength(separated) && Check.operationCorrectly(separated[1])) {
                 CalcFun.Calc(separated);
-
-
             }
+
 
 // обработка исключений
       //  } catch (NumberFormatException e) {
@@ -38,3 +37,4 @@ public class Main {
         }
     }
 }
+

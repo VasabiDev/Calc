@@ -6,16 +6,31 @@ public class Check {
 
     // проверка является ли число римским
     public static boolean checkRoman(String[] separated) {
+
         String[] roman = {"X", "IX", "VIII", "VII", "VI", "V", "IV", "III", "II", "I"};
+        String[] arab = {"10", "9", "8", "7", "6", "5", "4", "3", "2", "1"};
         boolean Romanflag = false;
+        boolean crossFlag = true;
+
         for (int i = 0; i < roman.length; i++) {
-            if (roman[i].equals(separated[0]) || roman[i].equals(separated[2])) {
-                Romanflag = true;
+            if (roman[i].equals(separated[0]) || (roman[i].equals(separated[2]))) {
+                    Romanflag = true;
+            }  else if (roman[i].equals(separated[0]) & arab[i].equals(separated[2]) || arab[i].equals(separated[0]) & roman[i].equals(separated[2]) ){
+                crossFlag = false;
+                Romanflag = false;
             }
-        }return Romanflag;
-    }
-// проверка размерности чисел
-        public static boolean checkNumberSize (String[] separated){
+        }
+
+
+        if (!crossFlag){
+            System.out.println("Произошло пересечение систем счисления");
+        }
+            return Romanflag;
+        }
+
+
+        // проверка размерности чисел
+        public static boolean checkNumberSize (String[]separated){
             int a = Integer.parseInt(separated[0]);
             int b = Integer.parseInt(separated[2]);
 
@@ -26,13 +41,14 @@ public class Check {
         }
         // проверка длины массива
 
-        public static boolean ArrayCheckLength (String[] separated){
+        public static boolean ArrayCheckLength (String[]separated){
 
             if (separated.length > 3) {
                 System.out.println("throws Exception //т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
                 return false;
             } else return true;
         }
+
         // проверка оператора на корректность
         public static boolean operationCorrectly (String operation){
             int count = 0;
@@ -54,5 +70,6 @@ public class Check {
             return false;
 
         }
-    }
 
+
+    }
