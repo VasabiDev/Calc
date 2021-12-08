@@ -1,39 +1,45 @@
 package com.company;
 
 public class Roman {
-    public static int RomanCalc (String[] separated) {
+    public static void RomanCalc (String[] separated) {
         String aStr= separated[0];
-        int a = 0;
+        int a ;
 
         String operation = separated[1];
 
         String bStr =separated[2];
-        int b = 0;
+        int b ;
 
-        int result = 0;
+        int result =0;
 
         a =RomantoInt(aStr);
         b =RomantoInt(bStr);
 
-        switch (operation) {
-            case ("+"):
-                System.out.println(a + b);
-                result = a + b;
-                break;
-            case ("-"):
-                System.out.println(a - b);
-                result = a - b;
-                break;
-            case ("*"):
-                System.out.println(a * b);
-                result = a * b;
-                break;
-            case ("/"):
-                System.out.println(a / b);
-                result = a / b;
-                break;
-        } return result;
 
+            switch (operation) {
+                case ("+"):
+                    // System.out.println(a + b);
+                    result = a + b;
+                    break;
+                case ("-"):
+                    // System.out.println(a - b);
+                    result = a - b;
+                    break;
+                case ("*"):
+                    //   System.out.println(a * b);
+                    result = a * b;
+                    break;
+                case ("/"):
+                    //   System.out.println(a / b);
+                    result = a / b;
+                    break;
+            }
+
+        if (result < 0){
+            System.out.println("Результат не может мыть меньше 0");
+        } else if (result >0) {
+           System.out.println(result);
+        }
     }
 
     public static int RomantoInt(String c){
