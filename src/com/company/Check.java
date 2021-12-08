@@ -73,7 +73,7 @@ public class Check {
         return false;
 
     }
-
+    // проверка пересечения систем счисления
     public static boolean crossCheck(String[] separated) {
         boolean crossFlag = true;
         String[] roman = {"X", "IX", "VIII", "VII", "VI", "V", "IV", "III", "II", "I"};

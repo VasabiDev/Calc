@@ -6,20 +6,20 @@ import static java.lang.String.join;
 
 public class Roman {
     public static void RomanCalc (String[] separated) {
+
+        // локализуем нужные нам элементы массива
         String aStr= separated[0];
         int a ;
-
-        String operation = separated[1];
-
         String bStr =separated[2];
         int b ;
+        String operation = separated[1];
 
         int result =0;
-
+        // перевод римских чисел в арабские
         a =RomantoInt(aStr);
         b =RomantoInt(bStr);
 
-
+        // метод для вычислений - сам калькулятор для римских чисел
             switch (operation) {
                 case ("+"):
                     // System.out.println(a + b);
@@ -46,7 +46,7 @@ public class Roman {
            System.out.println(IntToRoman(result));
         }
     }
-
+    // метод перевода римских чисел в арабские
     public static int RomantoInt(String c){
         int res=0;
         switch (c){
@@ -64,7 +64,7 @@ public class Roman {
         }
         return res;
     }
-
+    // метод перевода арабских чисел в римские с помощью коллекций
     public static String IntToRoman(int number) {
         return join("", Collections.nCopies(number, "I"))
                 .replace("IIIII", "V")
